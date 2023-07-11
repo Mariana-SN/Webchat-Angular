@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<div class="header">
+    <!--<div class="user-info">
+      <img [src]="loggedInUser.photo" alt="Foto do usuário logado">
+      <h2>{{ loggedInUser.name }}</h2>
+    </div>-->
+  
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar" [(ngModel)]="searchKeyword">
+      <button (click)="searchUsers()">Buscar</button>
+    </div>
+  </div>
+  
+  <div class="user-list">
+    <div class="card-deck">
+      <div *ngFor="let user of users" class="card user-card">
+        <img [src]="user.photo" alt="Foto do usuário" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.name }}</h5>
+          <button class="btn btn-primary" (click)="startChat(user)">Conversar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
