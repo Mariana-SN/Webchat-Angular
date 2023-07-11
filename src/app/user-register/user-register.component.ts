@@ -55,4 +55,8 @@ export class UserRegisterComponent implements OnInit {
       alert("Preencha todos os campos!");
     }
   }
+
+  back(){
+    this.router.navigate(['/']);
+  }
 }
