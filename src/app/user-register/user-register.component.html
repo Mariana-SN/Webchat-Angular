@@ -1,0 +1,27 @@
+<div class="register-container">
+  <div class="register-form">
+    <h2>Cadastro de Usuário</h2>
+    <br />
+    E-mail: <input [(ngModel)]="email" type="email" required />
+    <br /><br />
+    Username: <input [(ngModel)]="username" type="text" required />
+    <br /><br />
+    Name: <input [(ngModel)]="name" type="text" required />
+    <br /><br />
+    Gender:
+    <select [(ngModel)]="gender" required>
+      <option value="">Selecione</option>
+      <option value="Homem">Male</option>
+      <option value="Mulher">Female</option>
+      <option value="Outro">Other</option>
+    </select>
+    <br /><br />
+    Photo: <input [(ngModel)]="photo" type="text" required/>
+    <br /><br />
+    Password: <input [(ngModel)]="password" type="password" required/>
+    <br /><br />
+    Confirm Password: <input [(ngModel)]="confirmPassword" type="password" required/>
+    <br />
+    <button (click)="register()">Registrar</button>
+  </div>
+</div>

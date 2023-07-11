@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpBasicAuthInterceptor } from './http-basic-auth.interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UserComponent,
     LoginComponent,
     MessageComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,

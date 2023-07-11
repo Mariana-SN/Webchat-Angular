@@ -1,8 +1,15 @@
-<h2>Login</h2>
-<a style="color: red;">{{loginFailMessage}}</a>
-<br/>
-Login: <input [(ngModel)]="username" type="text" />
-<br/><br/>
-Password: <input [(ngModel)]="password" type="password"/>
-<br/>
-<button (click)="login()">Login</button>
+<div class="login-container">
+    <div class="login-form">
+      <h2>WebChat</h2>
+      <img src="assets/chat.png" alt="Chat Icon" />
+      <a style="color: red; text-align: center;">{{ loginFailMessage }}</a>
+      <br/>
+      Username: <input [(ngModel)]="username" type="text" />
+      <br/><br/>
+      Password: <input [(ngModel)]="password" type="password" />
+      <br/>
+      <button (click)="login()">Login</button>
+      <br/>
+      <a (click)="register()">Ainda não possui uma conta? Registre-se agora mesmo</a>
+    </div>
+  </div>
