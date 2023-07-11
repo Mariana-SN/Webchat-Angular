@@ -11,23 +11,15 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  /*login(username: string, password: string) {
-    const headers = new HttpHeaders(
-      {
-        authorization : 'Basic ' + btoa(username + ':' + password)
-      }
-    );
-    return this.http.get<Object>(this.API_USER_ME, {headers: headers});
-  }*/
-
   login(username: string, password: string) {
     const body = { username: username, password: password };
     const headers = new HttpHeaders(
       {
-        authorization : 'Basic ' + btoa(username + ':' + password)
+        Authorization: 'Basic ' + btoa(username + ':' + password)
       }
     );
-    return this.http.post(this.API_USER_ME, body, { headers: headers });
+    return this.http.get<Object>(this.API_USER_ME, {headers: headers});
+    //return this.http.post(this.API_USER_ME, body, { headers: headers });
   }
 }
 
