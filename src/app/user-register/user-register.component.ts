@@ -38,7 +38,7 @@ export class UserRegisterComponent implements OnInit {
         gender: this.gender,
         photo: this.photo,
         password: this.password,
-        onfirmPassword: this.confirmPassword
+        confirmPassword: this.confirmPassword
       };
 
       this.userRegister.register(userData)
@@ -54,5 +54,9 @@ export class UserRegisterComponent implements OnInit {
     } else {
       alert("Preencha todos os campos!");
     }
+  }
+
+  back(){
+    this.router.navigate(['/']);
   }
 }
