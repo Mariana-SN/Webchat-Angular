@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit {
   searchKeyword: string = '';
   loggedInUser: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router: Router) { }
 
   ngOnInit() {
     this.getLoggedInUser();
@@ -62,7 +63,7 @@ export class DashboardComponent implements OnInit {
     }
   }  
 
-  startChat(user: any) {
+  /*startChat(user: any) {
     this.userService.startChat(user).subscribe(
       response => {
         console.log('Conversa iniciada com:', user);
@@ -71,5 +72,9 @@ export class DashboardComponent implements OnInit {
         console.log(error);
       }
     );
+  }*/
+
+  startChat(){
+    this.router.navigate(['/message']);
   }
 }
