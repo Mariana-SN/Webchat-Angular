@@ -1,14 +1,15 @@
 <div class="header">
-    <!--<div class="user-info">
-      <img [src]="loggedInUser.photo" alt="Foto do usuário logado">
-      <h2>{{ loggedInUser.name }}</h2>
-    </div>-->
-  
-    <div class="search-bar">
-      <input type="text" placeholder="Pesquisar" [(ngModel)]="searchKeyword">
-      <button (click)="searchUsers()">Buscar</button>
-    </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Pesquisar" [(ngModel)]="searchKeyword">
+    <button (click)="searchUsers()">Buscar</button>
   </div>
+  <div class="user-info">
+    <img [src]="loggedInUser?.photo" alt="Foto do usuário" class="user-photo">
+    <span>{{ loggedInUser?.name }}</span>
+  </div>
+</div>
+
+<br><br>
   
   <div class="user-list">
     <div class="card-deck">

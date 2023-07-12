@@ -1,4 +1,4 @@
-.header {
+/*.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,5 +82,114 @@
   
   .card:last-child {
     margin-right: 0;
+  }*/
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
+  .search-bar {
+    margin-right: auto;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+  .search-bar input {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .search-bar button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .user-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /*.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: -10px;
+    max-width: 500px;
+  }
+
+  .user-card {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    margin-right: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }*/
+
+  .user-card {
+    flex-basis: calc(33.33% - 30px); 
+    margin-bottom: 20px;
+    margin-right: 10px; 
+    margin-left: 10px; 
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    max-width: 700px;
+    margin-left: -10px; 
+    margin-right: -10px; 
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card-title {
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }

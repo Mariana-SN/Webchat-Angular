@@ -10,18 +10,36 @@ import { UserService } from '../user.service';
 export class DashboardComponent implements OnInit {
   users: any[] = [];
   searchKeyword: string = '';
-loggedInUser: any;
+  loggedInUser: any;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getLoggedInUser();
     this.getUsers();
+  }
+
+  getLoggedInUser() {
+    const encodedCredentials = localStorage.getItem('authorization');
+    if (encodedCredentials) {
+      const decodedCredentials = atob(encodedCredentials);
+      const [username, password] = decodedCredentials.split(':');
+      this.userService.getUserByUsername(username).subscribe(
+        user => {
+          console.log(user)
+          this.loggedInUser = user;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   getUsers() {
     this.userService.getAllUsers().subscribe(
       users => {
-        this.users = users;
+        this.users = users.filter(user => user.id !== this.loggedInUser.id);
       },
       error => {
         console.log(error);
@@ -33,7 +51,7 @@ loggedInUser: any;
     if (this.searchKeyword.trim() !== '') {
       this.userService.searchUsers(this.searchKeyword).subscribe(
         users => {
-          this.users = users;
+          this.users = users.filter(user => user.id !== this.loggedInUser.id);
         },
         error => {
           console.log(error);
@@ -42,7 +60,7 @@ loggedInUser: any;
     } else {
       this.getUsers();
     }
-  }
+  }  
 
   startChat(user: any) {
     this.userService.startChat(user).subscribe(

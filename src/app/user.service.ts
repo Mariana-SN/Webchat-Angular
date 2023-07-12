@@ -14,12 +14,16 @@ export class UserService {
     return this.http.get<any>(`${this.baseUrl}/user/login`);
   }
 
+  getUserByUsername(username: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/user/${username}`);
+  }
+
   getAllUsers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/user/all-users`);
   }
 
   searchUsers(keyword: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/user/all-users?keyword=${keyword}`);
+    return this.http.get<any[]>(`${this.baseUrl}/user/search-users?keyword=${keyword}`);
   }
 
   startChat(user: any): Observable<any> {
