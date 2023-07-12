@@ -32,6 +32,11 @@
     background-color: blue;
   }
 
+  .register-form img {
+    max-width: 80%;
+    height: auto;
+  }
+
   .backButton{
     
     color: #000;
