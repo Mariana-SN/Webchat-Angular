@@ -24,7 +24,7 @@
     <div class="container">
       <div class="send-message-area">
         <span class="msg">Mensagem: </span>
-        <input type="text" [(ngModel)]="messageToSend">
+        <input type="text" [(ngModel)]="messageToSend" (keyup.enter)="sendMessage()">
         <button class="btn" (click)="sendMessage()"><i class="fas fa-paper-plane"></i></button>
       </div>
       <div class="message-between-users">

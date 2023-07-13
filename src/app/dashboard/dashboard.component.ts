@@ -17,25 +17,37 @@ export class DashboardComponent implements OnInit {
   constructor(private userService: UserService, private router: Router, private storageService: StorageService) { }
 
   ngOnInit() {
-    this.getLoggedInUser();
-    this.getUsers();
+    this.loadDashBoardData();
   }
 
-  getLoggedInUser() {
-    const encodedCredentials = localStorage.getItem('authorization');
-    if (encodedCredentials) {
-      const decodedCredentials = atob(encodedCredentials);
-      const [username, password] = decodedCredentials.split(':');
-      this.userService.getUserByUsername(username).subscribe(
-        user => {
-          console.log(user)
-          this.loggedInUser = user;
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    }
+  loadDashBoardData(): void {
+    this.getLoggedInUser()
+      .then(() => this.getUsers())
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  getLoggedInUser(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      const encodedCredentials = localStorage.getItem('authorization');
+      if (encodedCredentials) {
+        const decodedCredentials = atob(encodedCredentials);
+        const [username, password] = decodedCredentials.split(':');
+        this.userService.getUserByUsername(username).subscribe(
+          user => {
+            console.log(user);
+            this.loggedInUser = user;
+            resolve();
+          },
+          error => {
+            reject(error);
+          }
+        );
+      } else {
+        reject('As credenciais não estão disponíveis.');
+      }
+    });
   }
 
   getUsers() {

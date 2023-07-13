@@ -99,7 +99,7 @@ export class MessageComponent implements OnInit {
         response => {
           console.log('Mensagem enviada com sucesso.');
           this.messageToSend = '';
-          
+          this.loadUserMessages();
         },
         error => {
           console.log('Erro ao registrar o usuário:', error);
