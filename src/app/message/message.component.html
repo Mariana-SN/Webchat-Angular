@@ -37,7 +37,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let message of messages">
+            <tr *ngFor="let message of messages.reverse()">
               <td>{{ message.message }}</td>
               <td>{{ message.sendDate }}</td>
               <td>{{ message.senderId.name }}</td>
