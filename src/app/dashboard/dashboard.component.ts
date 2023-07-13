@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { StorageService } from '../storage.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class DashboardComponent implements OnInit {
   searchKeyword: string = '';
   loggedInUser: any;
 
-  constructor(private userService: UserService,private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private storageService: StorageService) { }
 
   ngOnInit() {
     this.getLoggedInUser();
@@ -76,5 +77,10 @@ export class DashboardComponent implements OnInit {
 
   startChat(){
     this.router.navigate(['/message']);
+  }
+
+  logout(){
+    this.storageService.remove('authorization');
+    this.router.navigate(['/']);
   }
 }

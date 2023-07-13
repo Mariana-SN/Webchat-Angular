@@ -1,11 +1,16 @@
 <div class="header">
   <div class="search-bar">
-    <input type="text" placeholder="Pesquisar" [(ngModel)]="searchKeyword">
-    <button (click)="searchUsers()">Buscar</button>
+    <input type="text" placeholder="Pesquisar" [(ngModel)]="searchKeyword" class="search-input">
+    <button (click)="searchUsers()" class="search-button"><i class="fas fa-search"></i>Buscar</button>
   </div>
-  <div class="user-info">
-    <img [src]="loggedInUser?.photo" alt="Foto do usuário" class="user-photo">
-    <span>{{ loggedInUser?.name }}</span>
+  <div class="header-right">
+    <div class="user-info">
+      <img [src]="loggedInUser?.photo" alt="Foto do usuário" class="user-photo">
+      <span>{{ loggedInUser?.name }}</span>
+    </div>
+    <div class="logout-area">
+      <button class="btn" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
   </div>
 </div>
 

@@ -1,1 +1,15 @@
-<p>message works!</p>
+<div class="header">
+    <div class="back-button">
+        <button class="btn btn-primary" (click)="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+      </div>
+
+    <div class="header-right">
+      <div class="user-info">
+        <img [src]="loggedInUser?.photo" alt="Foto do usuário" class="user-photo">
+        <span>{{ loggedInUser?.name }}</span>
+      </div>
+      <div class="logout-area">
+        <button class="btn" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+    </div>
+  </div>
