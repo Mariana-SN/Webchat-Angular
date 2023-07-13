@@ -12,11 +12,13 @@ import { MessageService } from '../message.service';
 })
 export class MessageComponent implements OnInit {
   loggedInUser: any;
+  userToSendMessage: any;
 
   constructor(private userService: UserService, private router: Router, private storageService: StorageService, private messageService: MessageService) { }
   
   ngOnInit(): void {
     this.getLoggedInUser();
+    this.getUserMessageReceiver();
   }
 
   getLoggedInUser() {
@@ -36,12 +38,28 @@ export class MessageComponent implements OnInit {
     }
   }
 
+  getUserMessageReceiver() {
+    const receiverUsername = localStorage.getItem('receiver');
+    if (receiverUsername) {
+      this.userService.getUserByUsername(receiverUsername).subscribe(
+        user => {
+          console.log(user)
+          this.userToSendMessage = user;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  }
+
   logout(){
     this.storageService.remove('authorization');
     this.router.navigate(['/']);
   }
 
   goBack(){
+    this.storageService.remove('receiver');
     this.router.navigate(['/dashboard']);
   }
 }

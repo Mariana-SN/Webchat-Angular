@@ -75,7 +75,8 @@ export class DashboardComponent implements OnInit {
     );
   }*/
 
-  startChat(){
+  startChat(username: string){
+    this.storageService.set('receiver', username)
     this.router.navigate(['/message']);
   }
 

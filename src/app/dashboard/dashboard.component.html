@@ -22,7 +22,7 @@
         <img [src]="user.photo" alt="Foto do usuário" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">{{ user.name }}</h5>
-          <button class="btn btn-primary" (click)="startChat()">Conversar</button>
+          <button class="btn btn-primary" (click)="startChat(user.username)">Conversar</button>
         </div>
       </div>
     </div>
