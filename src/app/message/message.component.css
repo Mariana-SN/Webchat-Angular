@@ -127,20 +127,25 @@
     margin-bottom: 5px; 
   }
 
-  .message-management {
+  .container {
     flex-grow: 1;
     display: flex;
-    background-color: lightblue;
+    flex-direction: column;
+  }
+  
+  .send-message-area {
+    flex-grow: 1;
+    display: flex;
     align-items: center;
     padding: 20px;
   }
-
-  .msg{
+  
+  .msg {
     font-weight: bold;
     font-size: larger;
   }
   
-  .message-management input[type="text"] {
+  .send-message-area input[type="text"] {
     flex-grow: 1;
     padding: 6px 12px;
     border: 1px solid #ccc;
@@ -149,16 +154,42 @@
     margin-left: 10px;
   }
   
-  .message-management button {
+  .send-message-area button {
     padding: 6px 12px;
     background-color: #03aa19;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 80px; /* Defina a largura desejada para o botão */
+    width: 80px;
     margin: 0;
   }
+  
+  .message-between-users {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+  }
+  
+  thead th {
+    text-align: left;
+    background-color: #a5a3a3;
+  }
+  
 
   @media (max-width: 600px) {
     .search-bar {

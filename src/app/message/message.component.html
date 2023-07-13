@@ -21,8 +21,29 @@
       <img [src]="userToSendMessage?.photo" alt="Foto do usuário" class="user-send-photo">
       <span>{{ userToSendMessage?.name }}</span>
     </div>
-    <div class="message-management">
-      <span class="msg">Mensagem: </span> <input type="text" [(ngModel)]="messageToSend">
-      <button class="btn" (click)="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    <div class="container">
+      <div class="send-message-area">
+        <span class="msg">Mensagem: </span>
+        <input type="text" [(ngModel)]="messageToSend">
+        <button class="btn" (click)="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+      <div class="message-between-users">
+        <table>
+          <thead>
+            <tr>
+              <th>Mensagem</th>
+              <th>Data</th>
+              <th>Enviado por</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let message of messages">
+              <td>{{ message.message }}</td>
+              <td>{{ message.sendDate }}</td>
+              <td>{{ message.senderId.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
