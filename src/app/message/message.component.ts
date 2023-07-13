@@ -133,4 +133,31 @@ export class MessageComponent implements OnInit {
       console.log('Usuário logado ou destinatário não definido.');
     }
   }
+  
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
+  get paginatedMessages(): any[] {
+    const startIndex = (this.totalPages - this.currentPage) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.messages.slice(startIndex, endIndex);
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.messages.length / this.itemsPerPage);
+  }
+
+  get pagesArray(): number[] {
+    const pages: number[] = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      pages.push(i);
+    }
+    return pages;
+  }
+
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  }
 }

@@ -27,7 +27,7 @@ export class UserRegisterComponent implements OnInit {
   register() {
     if (this.email && this.name && this.gender && this.photo && this.password && this.confirmPassword && this.username) {
       if (this.password !== this.confirmPassword) {
-        console.log("A senha e a confirmação de senha não correspondem.");
+        alert("A senha e a confirmação de senha não correspondem.");
         return;
       }
 

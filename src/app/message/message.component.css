@@ -189,6 +189,36 @@
     background-color: #a5a3a3;
   }
   
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pagination li {
+    margin: 0 5px;
+  }
+  
+  .pagination li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .pagination li.active a {
+    background-color: #007bff;
+    color: #fff;
+  }
 
   @media (max-width: 600px) {
     .search-bar {
