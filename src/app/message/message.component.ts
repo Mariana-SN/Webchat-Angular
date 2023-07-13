@@ -13,6 +13,7 @@ import { MessageService } from '../message.service';
 export class MessageComponent implements OnInit {
   loggedInUser: any;
   userToSendMessage: any;
+  messageToSend: string = '';
 
   constructor(private userService: UserService, private router: Router, private storageService: StorageService, private messageService: MessageService) { }
   
@@ -61,5 +62,29 @@ export class MessageComponent implements OnInit {
   goBack(){
     this.storageService.remove('receiver');
     this.router.navigate(['/dashboard']);
+  }
+
+  sendMessage(){
+    if (this.messageToSend.trim() !== '') {
+
+      const messageData = {
+        message: this.messageToSend,
+        senderId: this.loggedInUser,
+        receiverId: this.userToSendMessage
+      }
+
+      this.messageService.sendMessage(messageData)
+        .subscribe(
+          response => {
+            console.log("Mensagem enviada com sucesso.");
+            this.messageToSend = '';
+          },
+          error => {
+            console.log("Erro ao registrar o usuário:", error);
+          }
+        );
+    } else {
+      alert('O CAMPO MENSAGEM PRECISA TER VALOR!')
+    }
   }
 }

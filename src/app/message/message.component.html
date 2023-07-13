@@ -13,3 +13,16 @@
       </div>
     </div>
   </div>
+
+  <br><br>
+
+  <div class="page-body">
+    <div class="user-send-info">
+      <img [src]="userToSendMessage?.photo" alt="Foto do usuário" class="user-send-photo">
+      <span>{{ userToSendMessage?.name }}</span>
+    </div>
+    <div class="message-management">
+      <span class="msg">Mensagem: </span> <input type="text" [(ngModel)]="messageToSend">
+      <button class="btn" (click)="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
